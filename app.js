@@ -61,6 +61,7 @@ function sortearAmigo(){
         alert(`agregue ${(participantes.length == 1) ? 'más' : ''} nombres para el sorteo!!`);
     }
     
+    return;
 }
 
 
