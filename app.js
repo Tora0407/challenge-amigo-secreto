@@ -3,6 +3,7 @@
 //declarando variables
 let participantes = []
 let amigo = "";
+let numero = 0;
 
 function agregarAmigo(){
     amigo = document.getElementById('amigo').value;
@@ -12,7 +13,6 @@ function agregarAmigo(){
     if(amigo!=''){
         //agrega a participantes
         participantes.push(amigo);
-        console.log(participantes);
         //limpia el textBox
         document.getElementById('amigo').value='';
         //añade a la ul
@@ -40,6 +40,27 @@ function agregaLista(){
         lista.appendChild(segmentoLista);
     }
     return;
+}
+
+//sortear participantes
+function sortearAmigo(){
+    //si la lista tiene más de un participante
+    if(parseInt(participantes.length)>1){
+        //obtiene la cantidad de participantes
+        let cantidad = participantes.length;
+        numero = Math.floor(Math.random()*cantidad);
+        //captura la ul de participantes y lo limpia
+        let lista = document.getElementById('listaAmigos');
+        lista.innerHTML='';
+        //captura la ul de resultado
+        let resultado = document.getElementById('resultado');
+        //muestra el participante escogido
+        resultado.innerHTML=`El amigo secreto sorteado es: ${participantes[numero]}`;
+    }else{
+        //si no hay nombres en la lista o solo un participante, muestra el mensaje
+        alert(`agregue ${(participantes.length == 1) ? 'más' : ''} nombres para el sorteo!!`);
+    }
+    
 }
 
 
